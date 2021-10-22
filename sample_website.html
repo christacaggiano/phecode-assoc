@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<script type="text/javascript" src="fake_data.js"></script>
+		<script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
+		<script type="text/javascript">
+			generateGraph = (listOfComparisons, group1, group2) => {
+				const graph = {
+					x: listOfComparisons.map((c)=>c.phenotype),
+					y: listOfComparisons.map((c)=>c.coeff),
+					 error_y: {
+						type: 'data',
+						array: listOfComparisons.map((c)=>c.cint),
+						visible: true
+						},
+					mode: 'markers',
+					type: 'scatter'
+				};
+				const layout = {
+					title: {
+						text:`${group1} vs ${group2}`,
+						font: {
+							size: 24
+						},
+						xref: 'paper',
+						x: 0.05,
+					},
+					xaxis: {
+						title: {
+							text: 'ICD code',
+							font: {
+								size: 18,
+								color: '#7f7f7f'
+							}
+						},
+					},
+					yaxis: {
+						title: {
+							text: 'Coefficient',
+							font: {
+								size: 18,
+								color: '#7f7f7f'
+							}
+						}
+					}
+				};
+				Plotly.newPlot('comparison', [graph], layout);
+			};
+			window.onload = () => {
+				generateGraph(data.Group1.Group2, 'Group 1', 'Group 2');
+			};
+
+		</script>
+	</head>
+	<body>
+		<div id='comparison'><!-- Plotly chart will be drawn inside this DIV --></div>
+	</body>
+</html>
