@@ -38,7 +38,7 @@ generateGraph = (listOfComparisons, group1, group2, negate) => {
             },
         },
         yaxis: {
-            range: [-2, 2],
+            range: [-3, 3],
             title: {
                 text: 'Coefficient',
                 font: {
