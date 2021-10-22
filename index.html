@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<script type="text/javascript" src="fake_data.js"></script>
+		<script src='https://cdn.plot.ly/plotly-2.4.2.min.js'></script>
+		<script type="text/javascript" src="generateGraph.js"></script>
+		</script>
+	</head>
+	<body>
+		<div id='controls'>
+			<select name="firstGroup" id="firstGroup" onChange="updateGraph()">
+			</select>
+			<select name="secondGroup" id="secondGroup" onChange="updateGraph()">
+			</select>
+		</div>
+		<div id='comparison'><!-- Plotly chart will be drawn inside this DIV --></div>
+	</body>
+</html>
